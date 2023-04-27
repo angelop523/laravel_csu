@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RecordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/', 'RecordController@index');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', [RecordController::class, 'index']);
 Route::get('/records/create', 'RecordController@create');
 Route::post('/records', 'RecordController@store');
 Route::get('/records/{id}', 'RecordController@show');
